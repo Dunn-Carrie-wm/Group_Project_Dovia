@@ -1,0 +1,17 @@
+body{
+    background-image: url("http://hebus.org/files/Space/Space%20HD%20wallpaper%201920x1080%20(7).jpg");
+}
+
+
+#header{
+    height: 150px;
+    width: 1000px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 150px;
+}
+#picture{
+    background-image: url("");
+    height:1000px;
+    width:1000px;
+}
