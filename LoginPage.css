@@ -1,0 +1,113 @@
+body{
+    background-color: black;
+    background-image: url("http://hebus.org/files/Space/Space%20HD%20wallpaper%201920x1080%20(7).jpg");
+    background-size:1250px 1000px;
+}
+#Header{
+    text-align: center;
+    color:white;
+}
+#Login{
+    text-align: center;
+    color: white;
+}
+#form{
+    height:400px;
+    width:auto;
+    margin-bottom:800px;
+
+}
+#form{
+    width: 400px;
+    text-align: center;
+    margin-top: -10px;
+    margin-left: 150px;
+}
+
+#form fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 3px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    align-content: center;
+    box-sizing: border-box;
+    width: 115%;
+    margin: 0 10%;
+}
+
+
+/*inputs*/
+#form input, #form textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 35%;
+    box-sizing: border-box;
+    font-family: serif;
+    color: #2C3E50;
+    font-size: 13px;
+    align-content: center;
+}
+
+/*headings*/
+.fs-title {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+}
+.fs-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    /*CSS counters to number the steps*/
+    counter-reset: step;
+}
+#progressbar li {
+    list-style-type: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 9px;
+    width: 33.33%;
+    position: relative;
+}
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 20px;
+    line-height: 20px;
+    display: block;
+    font-size: 10px;
+    color: #333;
+    background: white;
+    border-radius: 3px;
+    margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    left: -50%;
+    top: 9px;
+    z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none;
+}
+#button{
+    text-align:center;
+    margin-top: -1050px;
+
+}
