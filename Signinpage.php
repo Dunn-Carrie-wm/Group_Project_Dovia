@@ -6,6 +6,36 @@
     <title>Sign Up</title>
 </head>
 <body background="http://hebus.org/files/Space/Space%20HD%20wallpaper%201920x1080%20(7).jpg"  >
+<!-- connection to data base -->
+<?php
+
+/*** mysql hostname ***/
+$hostname = '127.0.0.1';
+
+/*** mysql username ***/
+$username = 'root';
+
+/*** mysql password ***/
+$password = 'root';
+
+try {
+    $dbh = new PDO("mysql:host=$hostname;dovia", $username, $password);
+    /*** echo a message saying we have connected ***/
+    echo 'Connected to database';
+}
+catch(PDOException $e)
+{
+    echo $e->getMessage();
+}
+?>
+
+<?php
+if($_POST['formSubmit'] == "Submit")
+{
+    $varForm = $_POST['firstName'];
+}
+?>
+
 <h1>Sign Up</h1>
 <div id="form">
     <form id="msform">

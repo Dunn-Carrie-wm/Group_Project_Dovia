@@ -6,6 +6,28 @@
     <link href="LoginPage.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<!-- connection to data base -->
+<?php
+
+/*** mysql hostname ***/
+$hostname = '127.0.0.1';
+
+/*** mysql username ***/
+$username = 'root';
+
+/*** mysql password ***/
+$password = 'root';
+
+try {
+    $dbh = new PDO("mysql:host=$hostname;dovia", $username, $password);
+    /*** echo a message saying we have connected ***/
+    echo 'Connected to database';
+}
+catch(PDOException $e)
+{
+    echo $e->getMessage();
+}
+?>
 <div id="Header">
     <h1>Dovia</h1>
 </div>
