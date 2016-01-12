@@ -6,56 +6,60 @@
     <link href="LoginPage.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<!-- connection to data base -->
 <?php
-
-/*** mysql hostname ***/
-$hostname = '127.0.0.1';
-
-/*** mysql username ***/
-$username = 'root';
-
-/*** mysql password ***/
-$password = 'root';
-
 try {
-    $dbh = new PDO("mysql:host=$hostname;dovia", $username, $password);
-    /*** echo a message saying we have connected ***/
-    echo 'Connected to database';
+    $dbh = new PDO('mysql:host=127.0.0.1;dbname=dovia', 'root', 'root');
+
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
 }
-catch(PDOException $e)
+if(@$_POST['formSubmit'] == "Submit")
 {
-    echo $e->getMessage();
-}
-?>
+    $errorMessage = "";
+
+    if(empty($_POST['username']))
+    {
+        $errorMessage = "<li>You forgot to enter your username.</li>";
+    }
+    if(empty($_POST['password']))
+    {
+        $errorMessage = "<li>You forgot to enter your last password.</li>";
+    }
+
+
+    $stmt = $dbh->prepare("INSERT INTO login (username, password ) VALUES (?, ?)");
+
+    $result = $stmt->execute(array($_POST['username'], $_POST['password']));
+
+    if(!$result){
+        print_r($stmt->errorInfo());
+    }
+
+    if(!empty($errorMessage))
+    {
+        echo("<p>There was an error with your form:</p>\n");
+        echo("<ul>" . $errorMessage . "</ul>\n");
+    }
+
+}?>
 <div id="Header">
     <h1>Dovia</h1>
 </div>
 
 <div id="form">
-    <form>
+    <form method="post">
 
         <fieldset>
             <h2 class="fs-title">Login</h2>
-            <input type="text" name="E-mail" placeholder="Username or E-mail"/>
-            <input type="text" name="Password" placeholder="Password"/>
-
+            <input type="text" name="username" placeholder="Username or E-mail"/>
+            <input type="password" name="password" placeholder="Password"/>
+            <input type="submit" name="formSubmit" value="Submit" >
         </fieldset>
 
     </form>
 </div>
 
-<div id="button">
-    <button style="height: 50px; width: 200px; font-size: 30px; background-color: rgba(0, 255, 255, 0.65); font-family: serif; color: white; align-content:center ; "><a href="Loactionmap.html">Submit</a></button>
-</div>
 
-
-
-
-
-
-
-<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="Scripts.js"></script>
 </body>
 </html>

@@ -106,8 +106,3 @@ body{
     /*connector not needed before the first step*/
     content: none;
 }
-#button{
-    text-align:center;
-    margin-top: -1050px;
-
-}
