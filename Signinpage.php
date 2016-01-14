@@ -86,11 +86,6 @@ if(@$_POST['formSubmit'] == "Submit")
             <input type="submit" name="formSubmit" value="Submit" >
         </fieldset>
 
-    </form>
-
-
-    <form id="msform1" method="post">
-
         <fieldset>
             <h2 class="fs-title">Payment and Location</h2>
             <h3 class="fs-subtitle">Step 2</h3>
@@ -106,10 +101,7 @@ if(@$_POST['formSubmit'] == "Submit")
 
         </fieldset>
 
-    </form>
-
-
-    <form id="msform2" method="post">
+ 
 
         <fieldset>
             <h2 class="fs-title">Account</h2>

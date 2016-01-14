@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Dovia</title>
     <link href="LoginPage.css" rel="stylesheet" type="text/css">
+    <script src="scripts.js" type="text/javascript"></script>
 </head>
 <body>
 <?php
@@ -54,7 +55,7 @@ if(@$_POST['formSubmit'] == "Submit")
             <h2 class="fs-title">Login</h2>
             <input type="text" name="username" placeholder="Username or E-mail"/>
             <input type="password" name="password" placeholder="Password"/>
-            <input type="submit" name="formSubmit" value="Submit" >
+            <input type="submit" name="formSubmit" value="Submit" onclick="newPage()"/>
         </fieldset>
 
     </form>

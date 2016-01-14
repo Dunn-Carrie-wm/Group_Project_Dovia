@@ -47,9 +47,19 @@ if(@$_POST['formSubmit'] == "Submit")
         $errorMessage = "<li>You forgot to enter your password.</li>";
     }
 
-    $stmt = $dbh->prepare("INSERT INTO contact (firstName, lastName, phoneNumber, title, age, email, password ) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $dbh->prepare("INSERT INTO contact (firstName, lastName, phoneNumber, title, age, email, password ) VALUES (:firstName, :lastName, :phoneNumber, :title, :age, :email, :password)");
 
-    $result = $stmt->execute(array($_POST['firstName'], $_POST['lastName'], $_POST['phoneNumber'], $_POST['title'], $_POST['age'], $_POST['email'], $_POST['password']));
+    $result = $stmt->execute(array
+    (
+        'firstName'=>$_POST['firstName'],
+        'lastName'=>$_POST['lastName'],
+        'phoneNumber'=>$_POST['phoneNumber'],
+        'title'=>$_POST['title'],
+        'age'=>$_POST['age'],
+        'email'=>$_POST['email'],
+        'password'=>$_POST['password']
+    ));
+
 
     if(!$result){
         print_r($stmt->errorInfo());
@@ -60,6 +70,7 @@ if(@$_POST['formSubmit'] == "Submit")
         echo("<p>There was an error with your form:</p>\n");
         echo("<ul>" . $errorMessage . "</ul>\n");
     }
+
 
 }?>
 
@@ -83,10 +94,10 @@ if(@$_POST['formSubmit'] == "Submit")
             <input type="submit" name="formSubmit" value="Submit" >
         </fieldset>
 
-    </form>
 
 
-    <form id="msform1" method="post">
+
+
 
         <fieldset>
             <h2 class="fs-title">Destination</h2>
@@ -101,10 +112,8 @@ if(@$_POST['formSubmit'] == "Submit")
 
         </fieldset>
 
-    </form>
 
 
-    <form id="msform2" method="post">
 
         <fieldset>
             <h2 class="fs-title">Area Of The Charger Preferences</h2>
