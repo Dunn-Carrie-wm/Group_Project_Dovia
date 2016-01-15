@@ -17,7 +17,7 @@ try {
 if(@$_POST['formSubmit'] == "Submit")
 {
     $errorMessage = "";
-
+// form one
     if(empty($_POST['firstName']))
     {
         $errorMessage = "<li>You forgot to enter your first name.</li>";
@@ -47,7 +47,10 @@ if(@$_POST['formSubmit'] == "Submit")
         $errorMessage = "<li>You forgot to enter your password.</li>";
     }
 
-    $stmt = $dbh->prepare("INSERT INTO contact (firstName, lastName, phoneNumber, title, age, email, password ) VALUES (:firstName, :lastName, :phoneNumber, :title, :age, :email, :password)");
+
+
+    $stmt = $dbh->prepare("INSERT INTO contact (firstName, lastName, phoneNumber, title, age, email, password)
+      VALUES (:firstName, :lastName, :phoneNumber, :title, :age, :email, :password)");
 
     $result = $stmt->execute(array
     (
@@ -74,6 +77,7 @@ if(@$_POST['formSubmit'] == "Submit")
 
 }?>
 
+
 <div id="header">
     <h1>Dovia</h1>
 </div>
@@ -93,11 +97,10 @@ if(@$_POST['formSubmit'] == "Submit")
             <input type="password" name="password" placeholder="Password" />
             <input type="submit" name="formSubmit" value="Submit" >
         </fieldset>
+    </form>
 
 
-
-
-
+    <form id="msform1" method="post">
 
         <fieldset>
             <h2 class="fs-title">Destination</h2>
@@ -111,9 +114,10 @@ if(@$_POST['formSubmit'] == "Submit")
             <input type="number" name="miinutes" placeholder="Minutes Needed To Charger" />
 
         </fieldset>
+    </form>
 
 
-
+    <form id="msform2" method="post">
 
         <fieldset>
             <h2 class="fs-title">Area Of The Charger Preferences</h2>
@@ -123,7 +127,6 @@ if(@$_POST['formSubmit'] == "Submit")
             <input type="number" name="booth" placeholder="Booth Number" />
             <input type="text" name="station" placeholder="Station Of Charger" />
             <input type="text" name="typeOfPhone" placeholder="Type Of Phone" />
-
         </fieldset>
 
     </form>
